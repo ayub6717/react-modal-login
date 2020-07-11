@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./LoginComp.css";
 
@@ -6,6 +6,13 @@ Modal.setAppElement("#root");
 
 function LoginComp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [windowWidth, setwindowWidth] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setwindowWidth(document.body.clientWidth);
+    });
+  },[]);
 
   const customStyles = {
     content: {
@@ -25,6 +32,10 @@ function LoginComp() {
     },
   };
 
+  if (windowWidth < 520) {
+    customStyles.content.width = "300px"; 
+  }
+  
   return (
     <div className="login">
       <button onClick={() => setModalIsOpen(true)}>

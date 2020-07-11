@@ -17,6 +17,10 @@
     color: rgb(255, 255, 255);
 }
 
+.close:focus {
+    outline: none;
+}
+
 .login>button {
     padding: 10px;
     border: none;
