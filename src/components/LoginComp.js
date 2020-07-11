@@ -5,29 +5,31 @@ import "./LoginComp.css";
 Modal.setAppElement("#root");
 
 function LoginComp() {
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const customStyles = {
     content: {
       height: "500px",
-      width: "450px",
+      width: "520px",
       top: "50%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor: "cadetblue",
-      border: 0
+      backgroundColor: "rgb(26, 110, 131)",
+      border: " 2px solid rgb(12, 85, 98)",
     },
-    overlay : {
-        backgroundColor: "rgba(0,0,0,0.5)" // Fourth parameter is for opacity
-    }
+    overlay: {
+      backgroundColor: "rgba(0,0,0,0.5)", // Fourth parameter is for opacity
+    },
   };
 
   return (
     <div className="login">
-      <button onClick={() => setModalIsOpen(true)}>login</button>
+      <button onClick={() => setModalIsOpen(true)}>
+        <i className="fa fa-sign-in" aria-hidden="true"></i> login here
+      </button>
 
       <Modal
         isOpen={modalIsOpen}
@@ -48,10 +50,7 @@ function LoginComp() {
             type="text"
             placeholder="Enter Your Password"
           />
-          <button
-            onClick={() => setModalIsOpen(false)}
-            className="btn btn-primary"
-          >
+          <button onClick={() => setModalIsOpen(false)} className="btn">
             Login
           </button>
         </div>
