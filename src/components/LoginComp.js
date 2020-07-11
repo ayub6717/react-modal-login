@@ -6,13 +6,13 @@ Modal.setAppElement("#root");
 
 function LoginComp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [windowWidth, setwindowWidth] = useState(0);
+  const [windowWidth, setwindowWidth] = useState(520);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
       setwindowWidth(document.body.clientWidth);
     });
-  },[]);
+  }, []);
 
   const customStyles = {
     content: {
@@ -33,9 +33,9 @@ function LoginComp() {
   };
 
   if (windowWidth < 520) {
-    customStyles.content.width = "300px"; 
+    customStyles.content.width = "300px";
   }
-  
+
   return (
     <div className="login">
       <button onClick={() => setModalIsOpen(true)}>
@@ -50,12 +50,15 @@ function LoginComp() {
         <div className="openModal">
           <button className="close" onClick={() => setModalIsOpen(false)}>
             x
-          </button>
+          </button> <br/>
+          <p style={{marginTop:"100px",color:"white"}}>Your User Name</p>
           <input
             className="form-control my-4"
             type="text"
             placeholder="Enter Your username"
           />
+          <p style={{color:"white"}}>Your User Password</p>
+
           <input
             className="form-control my-4"
             type="text"
